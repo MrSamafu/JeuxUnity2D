@@ -23,7 +23,7 @@ public class ScriptInputRedFloor : MonoBehaviour
             if (Physics.Raycast(transform.position,transform.right,out hit, 5))//condition qui détermine si le raycast touche qqchose ou non
             {
                 
-                Destroy(hit.transform.gameObject);//detruit l'objet toucher par hit
+                Destroy(hit.transform.gameObject);//detruit l'objet toucher par hitq
             }
         }
         
