@@ -16,7 +16,7 @@ public class ScriptInputRedFloor : MonoBehaviour
     void Update()//fonction qui se joue a chaque frames du jeux
     {
         RaycastHit hit;//variable du raycast
-        if (Input.GetMouseButtonDown(0))//condotion qui est réaliser par un clic souris
+        if (Input.GetMouseButtonDown(0))//condition qui est réaliser par un clic gauche souris
         {
             leSol.GetComponent<Renderer>().material.color = Color.red;//change la couleur du sol en rouge
             Debug.DrawRay(transform.position, transform.right * 5, Color.red);//affiche le trajet du raycast, fonction debug visible par le dev seulement
