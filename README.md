@@ -20,3 +20,5 @@ Pour nos gestion de version, nous utilisons l'applications de bureau GitHub Desk
 
 Ce fichiers se remplira au fur et a mesure que nous aurons des taches a réaliser ensemble, en plus de cela, une branches sera crée pour chacune des fonctionnalité a venir dans ce projet, par exemple, déplacer un personnage, systeme d'inventaire, level design... etc
 Cela nous permettra de ne pas nous emmeler les pinceaux et surtout de pouvoirs travailler chacun a son rythme sans penaliser les autres.
+
+20/02/2020 Ajout d'un environement 3D.
