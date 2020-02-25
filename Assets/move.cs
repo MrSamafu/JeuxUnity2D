@@ -17,8 +17,9 @@ public class move : MonoBehaviour
     void Update()
     {
         Vector3 dp = new Vector3();
-        
-       
+
+        transform.rotation = new Quaternion(0, 0, 0, 90);
+
 
         if (Input.GetKey(KeyCode.Q))
         {
@@ -40,14 +41,12 @@ public class move : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumph));
             print("jump");
             
-            anim.SetBool("JumpExt", true);
-            anim.SetBool("jumpFlex", false);
             StartCoroutine(jump());
             
             
         }
         dp.z -= 0;
-        transform.position += dp;
+        
         
 
     }

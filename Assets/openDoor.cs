@@ -22,10 +22,10 @@ public class openDoor : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        door.transform.position = (new Vector2(doorPlaceX, doorPlaceY + 6)); 
+        door.transform.position = new Vector2(doorPlaceX, doorPlaceY + 6); 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        door.transform.position = (new Vector2(doorPlaceX, doorPlaceY));  
+        door.transform.position = new Vector2(doorPlaceX, doorPlaceY);  
     }
 }
