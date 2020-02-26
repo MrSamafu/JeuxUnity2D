@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class fixedCam : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject player;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,9 @@ public class fixedCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camera.transform.rotation = new Quaternion(0, 0, 0, 90);
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -15);
+
+
     }
 }

@@ -4,50 +4,69 @@ using UnityEngine;
 
 public class move : MonoBehaviour
 {
-    public float speed = 0.18f;
+    public float speed = 13f;
     public int jumph = 400;
     public Animator anim;
+    private string direction; 
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        anim.SetBool("Run", false);
+        direction = "droite";
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dp = new Vector3();
+        
 
-        transform.rotation = new Quaternion(0, 0, 0, 90);
+        
 
 
         if (Input.GetKey(KeyCode.Q))
         {
-            dp.x -= speed;
-            //GetComponent<SpriteRenderer>().transform.localScale = new Vector2(-0.307f, 0.27f);
+            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+            anim.SetBool("Run", true);
+            if(direction == "droite")
+            {
+                spriteRenderer.transform.rotation = new Quaternion(0,180,0,0);
+                direction = "gauche";
+            }
+            
         }
 
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            dp.x += speed;
-            //GetComponent<SpriteRenderer>().transform.localScale = new Vector2(0.307f, 0.27f);
+            transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
+            anim.SetBool("Run", true);
+            if (direction == "gauche")
+            {
+                spriteRenderer.transform.rotation = new Quaternion(0, 0, 0, 0);
+                direction = "droite";
+            }
+            
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            anim.SetBool("jumpFlex", true);
+            anim.SetBool("Run", false);
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumph));
+            anim.SetBool("Run", false);
             print("jump");
-            
+
             StartCoroutine(jump());
-            
-            
+
         }
-        dp.z -= 0;
-        
-        
+
+
+
 
     }
     IEnumerator jump()
