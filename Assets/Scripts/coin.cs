@@ -7,9 +7,11 @@ public class coin : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     
+    
+    
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class coin : MonoBehaviour
         if(collision.tag == "Player")
         {
             Destroy(gameObject);
+            
         }
         
     }
