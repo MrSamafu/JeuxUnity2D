@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class move : MonoBehaviour
+public class playerController : MonoBehaviour
 {
     public float speed = 13f;
     public int jumph = 400;
     public Animator anim;
     private string direction; 
     private SpriteRenderer spriteRenderer;
+    private int coins;
+    public Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,8 @@ public class move : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.SetBool("Run", false);
         direction = "droite";
+        coins = 0;
+        UpdateScoreText();
 
     }
 
@@ -68,6 +73,20 @@ public class move : MonoBehaviour
 
 
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("coins"))
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("coins recup" + coins);
+            coins++;
+            UpdateScoreText();
+        }
+    }
+    void UpdateScoreText()
+    {
+        scoreText.text = "Score : " + coins;
     }
     IEnumerator jump()
     {
