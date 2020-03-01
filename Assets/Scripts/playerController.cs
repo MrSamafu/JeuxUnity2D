@@ -60,7 +60,7 @@ public class playerController : MonoBehaviour
         {
             anim.SetBool("Run", false);
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumph));
             anim.SetBool("Run", false);
